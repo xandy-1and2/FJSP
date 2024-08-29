@@ -7,10 +7,18 @@ Created on Thu Apr  4 12:49:15 2019
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import os
+#引用字体
+from pylab import*
+mpl.rcParams['font.sans-serif']=['SimHei']
 
+# 获取根目录的绝对路径
+current_directory = os.path.abspath(os.path.dirname("__file__"))
+# 拼接路径
+absolute_path = os.path.join(current_directory, 'data', 'data_first.txt')
 #读取原始数据
 contents = []
-with open("data_first.txt") as f:
+with open(absolute_path) as f:
     string = f.readlines()
     for item in string:
         contents.append(item.strip().split(" "))
