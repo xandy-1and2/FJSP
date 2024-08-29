@@ -13,10 +13,18 @@ import time
 改变问题规模时需要改动的参数：工件参数workpiece，工序数目process，机器数目machine，
 机器选择部分的范围上限，迭代次数（规模小的时候可能降低迭代次数）
 '''
+import os
+#引用字体
+from pylab import*
+mpl.rcParams['font.sans-serif']=['SimHei']
 
+# 获取根目录的绝对路径
+current_directory = os.path.abspath(os.path.dirname("__file__"))
+# 拼接路径
+absolute_path = os.path.join(current_directory, 'data', 'data_first.txt')
 #读取原始数据
 contents = []
-with open("data_first.txt") as f:
+with open(absolute_path) as f:
     string = f.readlines()
     for item in string:
         contents.append(item.strip().split(" "))
